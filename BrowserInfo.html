@@ -1,0 +1,51 @@
+<html>
+
+<head></head>
+
+<body>
+    <h2>Browser Information</h2>
+    <div id="example"></div>
+    <h2>PWA Information</h2>
+    <div id="pwa"></div>
+    <script type="text/javascript">
+    txt = "<p>Browser CodeName: " + navigator.appCodeName + "</p>";
+    txt+= "<p>Browser Name: " + navigator.appName + "</p>";
+    txt+= "<p>Browser Version: " + navigator.appVersion + "</p>";
+    txt+= "<p>Cookies Enabled: " + navigator.cookieEnabled + "</p>";
+    txt+= "<p>Platform: " + navigator.platform + "</p>";
+    txt+= "<p>User-agent header: " + navigator.userAgent + "</p>";
+    document.getElementById("example").innerHTML=txt;
+
+
+    var serviceWorkerSupported = 'serviceWorker' in navigator;
+	var cacheSupported = 'caches' in window;
+	var pushSupported = 'serviceWorker' in navigator && 'PushManager' in window;
+	var bgSyncSupported = 'serviceWorker' in navigator && 'SyncManager' in window;
+	//var periodicSyncSupported = 'serviceWorker' in navigator && typeof ServiceWorkerRegistration.prototype.periodicSync !== 'undefined';
+	var indexedDbSupported = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+	var storageSupported = 'storage' in navigator && 'StorageManager' in window;
+	var persistentStorageSupported = navigator.storage && navigator.storage.persist;
+	var fileApiSupported = ('File' in window && 'FileReader' in window && 'FileList' in window && 'Blob' in window);
+	var btSupported = 'bluetooth' in navigator;
+	var mediaDevicesSupported = 'mediaDevices' in navigator;
+	var geoSupported = "geolocation" in navigator;
+
+    pwa = "<p>serviceWorkderSupported: "+ serviceWorkerSupported +"</p>";
+    pwa +="<p>Cache Supported: "+ cacheSupported +"</p>";
+    pwa +="<p>Pash Supported: "+ pushSupported +"</p>";
+    pwa +="<p>bgSyncSupported: "+ bgSyncSupported+"</p>";
+    //pwa +="<p>Periodic Sync Supported: "+ periodicSyncSupported+"</p>";
+    pwa +="<p>indexedDbSupported: "+ indexedDbSupported+"</p>";
+    pwa +="<p>Storage Support: "+storageSupported+"</p>";
+    pwa +="<p>Persistent Storage Support: "+persistentStorageSupported+"</p>";
+    pwa +="<p>File API Supported: "+fileApiSupported+"</p>";
+    pwa +="<p>btSupported: "+btSupported+"</p>";
+    pwa +="<p>Media Devices Supported: "+mediaDevicesSupported+"</p>";
+    pwa +="<p>geo Supported: "+mediaDevicesSupported+"</p>"
+
+    document.getElementById("pwa").innerHTML=pwa;
+    
+    </script>
+</body>
+
+</html>
